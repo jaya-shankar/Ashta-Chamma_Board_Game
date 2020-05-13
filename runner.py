@@ -1,7 +1,8 @@
 import pygame
 import time
 
-from helper import diceRoll,move,checkEnemy,safe_places,possibleMoves,board_overview,adjustDisplay
+from helper import diceRoll, move, checkEnemy, possibleMoves, board_overview, adjustDisplay
+from imp_data import safe_places, home_places,COLOURS
 from classes import Player
 
 HEIGHT = 9
@@ -16,19 +17,15 @@ pygame.display.set_caption("Ashta Chamma")
 icon=pygame.image.load("assets/icons/game_icon.png")
 pygame.display.set_icon(icon)
 
+WHITE=COLOURS["WHITE"]
+GRAY=COLOURS["GRAY"]
+BLACK=COLOURS["BLACK"]
 
-# Colours
-BLACK = (0, 0, 0)
-GRAY = (180, 180, 180)
-WHITE = (255, 255, 255)
-LIGHT_BLUE = (102, 204, 255)
+colors=[COLOURS["RED"], COLOURS["BLUE"],COLOURS["YELLOW"],COLOURS["GREEN"]]
 
-RED = (255, 0, 0)
-BLUE = (30, 144, 255)
-GREEN = (0, 255, 0)
-YELLOW = (255, 255, 0)
+home_colors=[COLOURS["LIGHT_RED"], COLOURS["LIGHT_BLUE"],COLOURS["LIGHT_GREEN"],COLOURS["LIGHT_YELLOW"]]
 
-colors=[RED, BLUE,YELLOW,GREEN]
+print("hi")
 turn=-1
 
 # Fonts
@@ -49,6 +46,7 @@ print("board_width=   "+str(board_height))
 print("board_origin=  "+str(board_origin))
 print("cell_size=     "+str(cell_size))
 
+#Intialization
 START=True
 isBoardDrawn=True
 running=True
@@ -78,6 +76,7 @@ def drawPawn(pawn,position):
 
 def drawBoard():
     cells = []
+    h_color=0
     for i in range(HEIGHT):
         row = []
         for j in range(WIDTH):
@@ -89,8 +88,7 @@ def drawBoard():
                 cell_size, cell_size
             )
             if(i!=0 and i!=HEIGHT-1 and j!=0 and j!=WIDTH-1):
-                if((i==1 and j==4) or (i==2 and j==2) or (i==2 and j==6) or (i==4 and j==1) or
-                    (i==4 and j==4) or (i==4 and j==7) or (i==6 and j==2) or (i==6 and j==6) or (i==7 and j==4)):
+                if((i,j) in safe_places):
                     pygame.draw.rect(screen, GRAY, rect)
                     pygame.draw.rect(screen, WHITE, rect, 3)
                     screen.blit(cross,(board_origin[0] + j * cell_size,board_origin[1] + i * cell_size))
@@ -98,9 +96,11 @@ def drawBoard():
                     pygame.draw.rect(screen, GRAY, rect)
                     pygame.draw.rect(screen, WHITE, rect, 3)
             else:
-                if((i==0 and j==4) or (i==4 and j==0) or (i==8 and j==4) or (i==4 and j==8) ):
-                    pygame.draw.rect(screen, LIGHT_BLUE, rect)
+                if((i,j) in home_places):
+                    pygame.draw.rect(screen,home_colors[h_color], rect)
                     pygame.draw.rect(screen, WHITE, rect, 3)
+                    h_color=(h_color+1)%4
+                    
                 else:
                     pygame.draw.rect(screen, BLACK, rect)
                     pygame.draw.rect(screen, BLACK, rect, 3)
@@ -337,6 +337,7 @@ while running:
                 moves=[]
                 screen.fill(BLACK)
                 pygame.display.flip()
+        
         pygame.display.update()
     
 
