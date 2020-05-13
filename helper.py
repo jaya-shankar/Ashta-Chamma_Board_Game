@@ -48,17 +48,22 @@ def possibleMoves(N,pawns,kill):
     for pawn in pawns:
         currentPos=pawn.Tup
         newPos=move(N,currentPos,pawn.color,kill)
-        if(currentPos!=newPos ):
+        for i in pawns:
+            if(newPos==i.Tup and (newPos not in safe_places)):
+                break
+        else:
             allMoves.append(pawn)
     return allMoves
 
 
 def checkEnemy(position,color):
     if position not in safe_places:
-        if board_overview[position]!=None:
-            enemy=board_overview[position]
-            board_overview[position]=color
-            return enemy
+        enemy=board_overview[position]
+        if(enemy==None):
+            return None
+        if(enemy.color==color):
+            return None
+        return enemy
 
 
 def gameDone(pawns):
