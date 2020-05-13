@@ -38,7 +38,10 @@ for i in range(0,9):
         else:
             board_overview[key]=None
 
+
 def diceRoll():
+
+    """Generates a random number from the possbile numbers based on the chances of each outcome"""
     possibleNumbers=[]
     for i in range(1,5):
         possibleNumbers.append(i)
@@ -83,13 +86,12 @@ def checkEnemy(position,color):
             board_overview[position]=color
             return enemy
 
+
 def gameDone(pawns):
     for pawn in pawns:
         if(pawn.Tup!=(4,4)):
             return False
     return True
-
-
 
 
 def selectPath(color):
@@ -102,3 +104,11 @@ def selectPath(color):
     elif(color==3):
         return greenPath
     
+
+def adjustDisplay(disNum):
+    arr=disNum.split(" ")
+    arr.pop(0)
+    disNum=""
+    for i in arr:
+        disNum=disNum+str(i)
+    return disNum

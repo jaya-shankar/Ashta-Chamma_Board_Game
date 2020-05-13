@@ -1,7 +1,7 @@
 import pygame
 import time
 
-from helper import diceRoll,move,checkEnemy,safe_places,possibleMoves,board_overview
+from helper import diceRoll,move,checkEnemy,safe_places,possibleMoves,board_overview,adjustDisplay
 from classes import Player
 
 HEIGHT = 9
@@ -58,7 +58,7 @@ helpPage=False
 rollDone=False
 calculateNow=False
 moveDone=True
-disNum=" "
+disNum=""
 moves=[]
 k=[]
 for i in range(4):
@@ -255,13 +255,14 @@ while running:
             if rollButton.collidepoint(mouse) and not changeTurn and not rollDone:
                 number=diceRoll()
                 Num=str(number[0])
-                disNum=Num
                 if(int(Num)%4==0):  #if the dice roll is 4 or 8 then give another chance
                     diceNumbers.append(Num)
+                    disNum=disNum+Num+" "
                     calculateNow=False
                     changeTurn=False
                     rollDone=False
                 else:
+                    disNum=disNum+Num+" "
                     diceNumbers.append(Num)
                     calculateNow=True
                     rollDone=True
@@ -312,7 +313,9 @@ while running:
 
                         if(board_overview[newPostion]!="X"):
                             board_overview[pawn.Tup]=pawn
-                        disNum=" "
+                        
+
+                        disNum=adjustDisplay(disNum)
                         Num=0
                         
                         rollDone=False
