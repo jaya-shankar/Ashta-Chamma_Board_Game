@@ -16,6 +16,8 @@ class Player():
         self.Button=pygame.Rect(self.Position,self.image.get_size())
 
     def changePosition(self,newPostion,cells):
+        """ Takes newPositon and position of all the pawns on board and changes the object's Positon to New Position"""
+
         c=self.color
         i=self.number
 
@@ -26,6 +28,8 @@ class Player():
         self.Button=pygame.Rect(self.Position, self.image.get_size())
 
     def goToStart(self,cells):
+        """ Changes the object's position to it's Start Positon """
+        
         i=self.color
         j=self.number
         if(i==3):
@@ -38,9 +42,13 @@ class Player():
         self.Button=pygame.Rect(self.Position,self.image.get_size())
 
     def increaseSize(self):
+        """ Increases the size of the object's Pawn Image """
+
         self.image=pygame.image.load("assets/icons/b.gif")
 
     def decreaseSize(self):
+        """ Decreases the size of the object's Pawn Image """
+        
         i=self.color
         self.image=pygame.image.load("assets/icons/"+str(i)+".gif")
         

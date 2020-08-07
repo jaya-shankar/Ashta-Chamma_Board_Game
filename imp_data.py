@@ -41,6 +41,8 @@ COLOURS={
 
 
 def selectPath(color):
+    """ returns the path based on the given color(index) input """
+
     if(color==0):
         return redPath
     elif(color==1):

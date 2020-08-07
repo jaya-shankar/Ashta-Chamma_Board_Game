@@ -20,12 +20,12 @@ pygame.display.set_icon(icon)
 WHITE=COLOURS["WHITE"]
 GRAY=COLOURS["GRAY"]
 BLACK=COLOURS["BLACK"]
-
+#Colours Array------------------------------------------------------------------
 colors=[COLOURS["RED"], COLOURS["BLUE"],COLOURS["YELLOW"],COLOURS["GREEN"]]
 
 home_colors=[COLOURS["LIGHT_RED"], COLOURS["LIGHT_BLUE"],COLOURS["LIGHT_GREEN"],COLOURS["LIGHT_YELLOW"]]
+#------------------------------------------------------------------
 
-print("hi")
 turn=-1
 
 # Fonts
@@ -34,19 +34,18 @@ smallFont = pygame.font.Font(OPEN_SANS, 20)
 mediumFont = pygame.font.Font(OPEN_SANS, 28)
 largeFont = pygame.font.Font(OPEN_SANS, 40)
 
-BOARD_PADDING = 20
-board_height = ((7/8) * height) - (BOARD_PADDING * 2)
+
+#Board Dimensions----------------------------------------------------------------------------------------------
+
+BOARD_PADDING = 20                                                  
+board_height = ((7/8) * height) - (BOARD_PADDING * 2)    
 board_width = width - (BOARD_PADDING * 2)
 cell_size = int(min(board_height / WIDTH, board_width / HEIGHT))
 board_origin = (BOARD_PADDING, BOARD_PADDING)
-print("width=        "+str(width))
-print("height=         "+str(height))
-print("board_height=  "+str(board_width))
-print("board_width=   "+str(board_height))
-print("board_origin=  "+str(board_origin))
-print("cell_size=     "+str(cell_size))
+#---------------------------------------------------------------------------------------------------------------
 
-#Intialization
+
+#Intialization---------------------------------------------------------------------------------------------------------------
 START=True
 isBoardDrawn=True
 running=True
@@ -61,20 +60,27 @@ moves=[]
 k=[]
 for i in range(4):
     k.append(False)
-
-
 allPawns=[]
+#---------------------------------------------------------------------------------------------------------------
+
+#Importing and Resizing Images ----------------------------------------------------------------------------------------
+
 cross=pygame.image.load("assets/icons/cross.gif")
 cross=pygame.transform.scale(cross,(53,53))
 game_name=pygame.image.load("assets/icons/logo.gif")
 game_name=pygame.transform.scale(game_name,(600,100))
 instructions=pygame.image.load("assets/icons/instruction.gif")
 instructions=pygame.transform.scale(instructions,(790,350))
+#------------------------------------------------------------------------------------------------------------------------
 
 def drawPawn(pawn,position):
+    """ Takes Pawn and Postion as input and renders the pawn at the given postion"""
+
     screen.blit(pawn,position)
 
 def drawBoard():
+    """ Draws the board on to the screen and return a 2D list representing each positon of the square """
+
     cells = []
     h_color=0
     for i in range(HEIGHT):
@@ -109,6 +115,8 @@ def drawBoard():
     return cells
 
 def drawEverything():
+    """ Renders all the pawns on to the board """
+
     cells=drawBoard()
     for j in range(4):
         for i in range(4):
@@ -120,9 +128,10 @@ while running:
             running=False
 
 
-    # Play Button
+    # Main Menu Page-----------------------------------------------------------------------------------------------------
     if(mainPage):
         screen.blit(game_name,(100,200))
+        #Rendering Play Button-------------------------------------------------------------------------------------------
         playButton = pygame.Rect(
             (3 / 8) * width , (5/8) * height,
             (height / 3) - BOARD_PADDING * 2, 50
@@ -132,7 +141,9 @@ while running:
         playRect.center = playButton.center
         pygame.draw.rect(screen, WHITE, playButton)
         screen.blit(playText, playRect)
+        #---------------------------------------------------------------------------------------------------------------
 
+        #Rendering Help Button-------------------------------------------------------------------------------------------
         helpButton = pygame.Rect(
             (3 / 8) * width , (13/16) * height,
             (height / 3) - BOARD_PADDING * 2, 50
@@ -142,36 +153,46 @@ while running:
         helpRect.center = helpButton.center
         pygame.draw.rect(screen, WHITE, helpButton)
         screen.blit(helpText, helpRect)
+        #---------------------------------------------------------------------------------------------------------------
 
         # Check if play button clicked
         click, _, _ = pygame.mouse.get_pressed()
         if click == 1:
             mouse = pygame.mouse.get_pos()
+
+            #If Play button is clicked
             if playRect.collidepoint(mouse):
                 mainPage = False
                 screen.fill(BLACK)
                 pygame.display.flip()
+
+            #If Help button is clicked
             if helpRect.collidepoint(mouse):
                 mainPage = False
                 helpPage=True
                 screen.fill(BLACK)
                 pygame.display.flip()
         pygame.display.update()
+    #----------------------------------------------------------------------------------------------------
     elif(helpPage):
         screen.blit(instructions,(5,10))
         backButton = pygame.Rect(
             (3 / 8) * width , (13/16) * height,
             (height / 3) - BOARD_PADDING * 2, 50
         )
+        #Rendering Back Button-----------------------------------------------------------------------------
         backText = mediumFont.render("Back", True, BLACK)
         backRect = backText.get_rect()
         backRect.center = backButton.center
         pygame.draw.rect(screen, WHITE, backButton)
         screen.blit(backText, backRect)
+        #-------------------------------------------------------------------------------------------------------
 
         click, _, _ = pygame.mouse.get_pressed()
         if click == 1:
             mouse = pygame.mouse.get_pos()
+
+            #If Back button is clicked
             if backRect.collidepoint(mouse):
                 mainPage = True
                 helpPage=False
