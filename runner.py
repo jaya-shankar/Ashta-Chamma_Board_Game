@@ -20,7 +20,7 @@ pygame.display.set_icon(icon)
 WHITE=COLOURS["WHITE"]
 GRAY=COLOURS["GRAY"]
 BLACK=COLOURS["BLACK"]
-#Colours Array------------------------------------------------------------------
+#-------------------------------Colours Array-----------------------------------
 colors=[COLOURS["RED"], COLOURS["BLUE"],COLOURS["YELLOW"],COLOURS["GREEN"]]
 
 home_colors=[COLOURS["LIGHT_RED"], COLOURS["LIGHT_BLUE"],COLOURS["LIGHT_GREEN"],COLOURS["LIGHT_YELLOW"]]
@@ -35,7 +35,7 @@ mediumFont = pygame.font.Font(OPEN_SANS, 28)
 largeFont = pygame.font.Font(OPEN_SANS, 40)
 
 
-#Board Dimensions----------------------------------------------------------------------------------------------
+#-----------------------------------------Board Dimensions-----------------------------------------------------
 
 BOARD_PADDING = 20                                                  
 board_height = ((7/8) * height) - (BOARD_PADDING * 2)    
@@ -45,7 +45,7 @@ board_origin = (BOARD_PADDING, BOARD_PADDING)
 #---------------------------------------------------------------------------------------------------------------
 
 
-#Intialization---------------------------------------------------------------------------------------------------------------
+#------------------------------------------Intialization----------------------------------------------------------------
 START=True
 isBoardDrawn=True
 running=True
@@ -63,7 +63,7 @@ for i in range(4):
 allPawns=[]
 #---------------------------------------------------------------------------------------------------------------
 
-#Importing and Resizing Images ----------------------------------------------------------------------------------------
+#------------------------------------------Importing and Resizing Images ----------------------------------------------
 
 cross=pygame.image.load("assets/icons/cross.gif")
 cross=pygame.transform.scale(cross,(53,53))
@@ -128,10 +128,10 @@ while running:
             running=False
 
 
-    # Main Menu Page-----------------------------------------------------------------------------------------------------
+    #-----------------------------------------------Main Menu Page-------------------------------------------------------
     if(mainPage):
         screen.blit(game_name,(100,200))
-        #Rendering Play Button-------------------------------------------------------------------------------------------
+        #-----------------------------------------Rendering Play Button-------------------------------------------------
         playButton = pygame.Rect(
             (3 / 8) * width , (5/8) * height,
             (height / 3) - BOARD_PADDING * 2, 50
@@ -143,7 +143,7 @@ while running:
         screen.blit(playText, playRect)
         #---------------------------------------------------------------------------------------------------------------
 
-        #Rendering Help Button-------------------------------------------------------------------------------------------
+        #-----------------------------------------------Rendering Help Button--------------------------------------------
         helpButton = pygame.Rect(
             (3 / 8) * width , (13/16) * height,
             (height / 3) - BOARD_PADDING * 2, 50
@@ -180,7 +180,7 @@ while running:
             (3 / 8) * width , (13/16) * height,
             (height / 3) - BOARD_PADDING * 2, 50
         )
-        #Rendering Back Button-----------------------------------------------------------------------------
+        #-------------------------------------------Rendering Back Button----------------------------------
         backText = mediumFont.render("Back", True, BLACK)
         backRect = backText.get_rect()
         backRect.center = backButton.center
@@ -217,19 +217,20 @@ while running:
             drawEverything()
             START=False
 
-        # Display Number
+        #------------------------------------Display the number on the die-------------------------------------
         displayBox = pygame.Rect(
             (7 / 8) * height+ BOARD_PADDING, (4 / 8) * width + BOARD_PADDING,
             (height / 3) - BOARD_PADDING * 2, 50
         )
         pygame.draw.rect(screen, WHITE, displayBox)
+        #-----------------------------------------------------------------------------------------------------
         
         N = mediumFont.render(str(disNum), True, BLACK)
         textRect = N.get_rect()
         textRect.center = displayBox.center
         screen.blit(N, textRect)
 
-        # who's Turn
+        #---------------------------------------Box shows who's turn it is-------------------------------------
         turnBox = pygame.Rect(
             (7 / 8) * height+ BOARD_PADDING, (2 / 8) * width + BOARD_PADDING,
             (height / 3) - BOARD_PADDING * 2, 50
@@ -248,7 +249,7 @@ while running:
         textRect.center = turnBox.center
         screen.blit(text, textRect)
 
-        # Roll Button
+        #-----------------------------------------Roll Button-----------------------------------
         rollButton = pygame.Rect(
             (7 / 8) *height + BOARD_PADDING, (5/8) * width + 20,
             (height / 3) - BOARD_PADDING * 2, 50
@@ -259,7 +260,7 @@ while running:
         pygame.draw.rect(screen, WHITE, rollButton)
         screen.blit(buttonText, buttonRect)
         
-       # Exit Button
+       #-----------------------------------------Exit Button-----------------------------------
         exitButton = pygame.Rect(
             (7 / 8) *height + BOARD_PADDING, (1/8) * width ,
             (height / 3) - BOARD_PADDING * 2, 50
@@ -350,7 +351,7 @@ while running:
                     pygame.display.update()
         
 
-            drawEverything() # this function redraws the board with 
+            drawEverything()
             if(exitButton.collidepoint(mouse)):
                 mainPage=True
                 START=True
