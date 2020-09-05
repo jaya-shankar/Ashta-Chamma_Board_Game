@@ -1,0 +1,4 @@
+0 - red - triangle
+1 - blue - diamond
+2 - yellow - circle
+3 - green - square

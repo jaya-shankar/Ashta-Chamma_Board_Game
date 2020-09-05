@@ -3,7 +3,7 @@ import pygame
 
 class Player():
     def __init__(self,cells,i,j):
-        self.image=pygame.image.load("assets/icons/"+str(i)+".gif")
+        self.image=pygame.image.load("assets/icons/"+str(i)+".png")
         if(i==3):
             self.Position=cells[4][8].center
             self.Tup=(4,8)
@@ -44,12 +44,12 @@ class Player():
     def increaseSize(self):
         """ Increases the size of the object's Pawn Image """
 
-        self.image=pygame.image.load("assets/icons/b.gif")
+        self.image=pygame.image.load("assets/icons/b.png")
 
     def decreaseSize(self):
         """ Decreases the size of the object's Pawn Image """
         
         i=self.color
-        self.image=pygame.image.load("assets/icons/"+str(i)+".gif")
+        self.image=pygame.image.load("assets/icons/"+str(i)+".png")
         
 

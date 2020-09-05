@@ -65,7 +65,7 @@ allPawns=[]
 
 #------------------------------------------Importing and Resizing Images ----------------------------------------------
 
-cross=pygame.image.load("assets/icons/cross.gif")
+cross=pygame.image.load("assets/icons/cross.png")
 cross=pygame.transform.scale(cross,(53,53))
 game_name=pygame.image.load("assets/icons/logo.gif")
 game_name=pygame.transform.scale(game_name,(600,100))
@@ -95,11 +95,11 @@ def drawBoard():
             )
             if(i!=0 and i!=HEIGHT-1 and j!=0 and j!=WIDTH-1):
                 if((i,j) in safe_places):
-                    pygame.draw.rect(screen, GRAY, rect)
+                    pygame.draw.rect(screen, (240, 207, 174), rect)
                     pygame.draw.rect(screen, WHITE, rect, 3)
                     screen.blit(cross,(board_origin[0] + j * cell_size,board_origin[1] + i * cell_size))
                 else:
-                    pygame.draw.rect(screen, GRAY, rect)
+                    pygame.draw.rect(screen, (240, 207, 174), rect)
                     pygame.draw.rect(screen, WHITE, rect, 3)
             else:
                 if((i,j) in home_places):
