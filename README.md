@@ -1,43 +1,32 @@
 # Ashta-Chamma 
 
 ## Description: 
-🎲it’s an Indian board game called [Ashta-Chamma](https://wiki2.org/en/Ashta_Chamma_(board_game)) which is much similar to Ludo 
+An Indian version of the popular game Ludo. 
 
-The game is build by using **pygame** library in **python3** 🐍 
+See [Ashta-Chamma](https://wiki2.org/en/Ashta_Chamma_(board_game)) to know more
 
-## Setup:
-I assume that you already had one python editor already installed
+The game has been build by using **pygame** module in **python3** 🐍 
 
-If not follow the link and download it: https://www.python.org/downloads/
-
-To play the game one must need pygame library installed, if not installed then follow the following instructions to install pygame
-
-   1. Open up your terminal window/cmd and browse where to folder is present
-    
-   2. Type the following command
+## Installation
+1. Install Python 3 from www.python.org
+1. Install required modules <br>
+<code> pip3 install -r requirements.txt </code>
    
-			pip3 install -r requirements.txt
-      
-   3.if the command executes sucessfully without error the setup 		is done 👍
-   
-## To Play:
+## Usage:
+In a command prompt/terminal
 
-To play the game now in the same	terminal window execute the following command
-
-	python3 runner.py
-  
-## Rules of the Game:
-
-you can find them in the game	 once you start it😜
+1. Use the 'cd' command to go to the downloaded/cloned directory
+1. Run the following command <br>
+<code>python3 game.py </code>
   
 ## ScreenShot of the Game :
 ![preview](/assets/screenshot/preview.png)
 
-## Acknowledgement:
-
-All the icons and pawns pieces used in this game are downloaded  from [FlatIcon](https://www.flaticon.com/)
-
 ## Contribution :
+Interested people can contribute to develop the game 🙌
 
-Interested people can contribute to develop the game🙌
+You may contibute to this project by developing additional features.
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 		 
+### Made with lots of ⏱️, 📚 and ☕ by [Jaya Shankar](https://github.com/jaya-shankar) & [InputBlackBoxOutput](https://github.com/InputBlackBoxOutput)
