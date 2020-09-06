@@ -17,27 +17,14 @@ pygame.display.set_icon(icon)
 
 #-------------------------------------------------------------------------
 # Colours
-COLOURS={
-	"BLACK" : (0, 0, 0) ,
-	"GRAY" : (180, 180, 180) ,
-	"WHITE" : (255, 255, 255) ,
-	"LIGHT_BLUE" : (102, 204, 255) ,
-	"RED" : (255, 0, 0) ,
-	"BLUE" : (30, 144, 255) ,
-	"GREEN" : (0, 255, 0) ,
-	"YELLOW" : (255, 255, 0) ,
-	"LIGHT_RED" : (255, 102, 102) ,
-	"LIGHT_GREEN" : (26, 255, 140) ,
-	"LIGHT_YELLOW" : (255, 255, 102)
-}
+WHITE = (255, 255, 255)
+GRAY  = (180, 180, 180)
+BLACK = (0, 0, 0)
 
-WHITE=COLOURS["WHITE"]
-GRAY=COLOURS["GRAY"]
-BLACK=COLOURS["BLACK"]
+# Turn colours R->B->Y->G
+colors=[(250, 39, 55), (42, 122, 218), (58, 154, 26), (220, 160, 20)]
 
-colors=[COLOURS["RED"], COLOURS["BLUE"],COLOURS["YELLOW"],COLOURS["GREEN"]]
-
-home_colors=[COLOURS["LIGHT_RED"], COLOURS["LIGHT_BLUE"],COLOURS["LIGHT_GREEN"],COLOURS["LIGHT_YELLOW"]]
+home_colors=[WHITE, WHITE, WHITE, WHITE]
 #---------------------------------------------------------------------------------------------------
 # Fonts
 OPEN_SANS = "assets/fonts/OpenSans-Regular.ttf"
@@ -113,20 +100,20 @@ def drawBoard():
 			if(i!=0 and i!=HEIGHT-1 and j!=0 and j!=WIDTH-1):
 				if((i,j) in safe_places):
 					pygame.draw.rect(screen, (240, 207, 174), rect)
-					pygame.draw.rect(screen, WHITE, rect, 3)
+					pygame.draw.rect(screen, WHITE, rect, 2)
 					screen.blit(cross,(board_origin[0] + j * cell_size,board_origin[1] + i * cell_size))
 				else:
 					pygame.draw.rect(screen, (240, 207, 174), rect)
-					pygame.draw.rect(screen, WHITE, rect, 3)
+					pygame.draw.rect(screen, WHITE, rect, 2)
 			else:
 				if((i,j) in home_places):
 					pygame.draw.rect(screen,home_colors[h_color], rect)
-					pygame.draw.rect(screen, WHITE, rect, 3)
+					pygame.draw.rect(screen, WHITE, rect, 2)
 					h_color=(h_color+1)%4
 					
 				else:
 					pygame.draw.rect(screen, BLACK, rect)
-					pygame.draw.rect(screen, BLACK, rect, 3)
+					pygame.draw.rect(screen, BLACK, rect, 2)
 			row.append(rect)
 		cells.append(row)
 	return cells
