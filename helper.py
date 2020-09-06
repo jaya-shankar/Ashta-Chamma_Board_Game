@@ -1,7 +1,9 @@
 import random
-from classes import Player
-from imp_data import selectPath,safe_places
+from player import Player
+from path import getPath
 
+safe_places=[ (1,4), (2,2), (2,6), (4,1), (4,4), (4,7), (6,2), (6,6), (7,4) ]
+home_places=[(4,8), (8,4), (4,0), (0,4)]
 
 board_overview={}
 for i in range(0,9):
@@ -14,7 +16,6 @@ for i in range(0,9):
 
 
 def diceRoll():
-
     """Generates a random number from the possbile numbers based on the chances of each outcome"""
     possibleNumbers=[]
     for i in range(1,5):
@@ -28,7 +29,7 @@ def diceRoll():
 def move(N,currentPos,color,isKill):
     k=0
     newPosition=0
-    path=selectPath(color)
+    path=getPath(color)
     N=int(N)
     
     k=path.index(currentPos)
@@ -71,8 +72,6 @@ def gameDone(pawns):
         if(pawn.Tup!=(4,4)):
             return False
     return True
-
-    
 
 def adjustDisplay(disNum):
     arr=disNum.split(" ")
