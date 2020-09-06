@@ -1,6 +1,5 @@
 import pygame
 
-
 class Player():
     def __init__(self,cells,i,j):
         self.image=pygame.image.load("assets/icons/"+str(i)+".png")
