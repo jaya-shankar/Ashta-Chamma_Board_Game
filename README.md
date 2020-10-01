@@ -7,7 +7,7 @@ See [Ashta-Chamma](https://wiki2.org/en/Ashta_Chamma_(board_game)) to know more
 
 The game has been build by using **pygame** module in **python3** 🐍 
 
-##Game Rules:
+## Game Rules:
 
 1. When game starts all pawns are blocked at home, to release pawns player must roll 1 or 4 or 8.
 
