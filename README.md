@@ -37,7 +37,7 @@ In a command prompt/terminal
 ## Contribution :
 Interested people can contribute to develop the game 🙌
 
-if you dont know what to do check project board
+if you dont know what to do check project board 🎯
 
 You may contibute to this project by developing additional features.
 
