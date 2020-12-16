@@ -73,8 +73,8 @@ cross=pygame.transform.scale(cross,(53,53))
 game_name=pygame.image.load("assets/icons/logo.gif")
 game_name=pygame.transform.scale(game_name,(600,100))
 
-instructions=pygame.image.load("assets/icons/instruction.gif")
-instructions=pygame.transform.scale(instructions,(790,350))
+instructions=pygame.image.load("assets/icons/instruction.png")
+instructions=pygame.transform.scale(instructions, (790,350))
 #------------------------------------------------------------------------------------------------------------------------
 
 def drawPawn(pawn,position):
