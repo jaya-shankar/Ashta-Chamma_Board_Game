@@ -7,6 +7,8 @@ See [Ashta-Chamma](https://wiki2.org/en/Ashta_Chamma_(board_game)) to know more
 
 The game has been build by using **pygame** module in **python3** 🐍 
 
+![preview](/assets/screenshot/preview.gif)
+
 ## Installation
 1. Install Python 3 from www.python.org
 1. Install required modules <br>
@@ -19,7 +21,7 @@ In a command prompt/terminal
 1. Run the following command <br>
 <code>python3 game.py </code>
   
-## ScreenShot of the Game :
+## Screenshot:
 ![preview](/assets/screenshot/preview.png)
 
 ## Contribution :
