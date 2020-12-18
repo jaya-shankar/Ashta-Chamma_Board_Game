@@ -9,6 +9,14 @@ The game has been build by using **pygame** module in **python3** 🐍
 
 ![preview](/assets/screenshot/preview.gif)
 
+## Game Rules:
+
+1. When game starts all pawns are blocked at home, to release pawns player must roll 1 or 4 or 8.
+1. Every player has a path to reach destination . So when player gets a number, then he/she needs to choose one of their released pawns and move it that many squares along the path.
+1. Only one pawn can stand on a square except on a safe square which marked with star. So if player 1’s pawn stands on a square and player 2’s pawn is moving to the same square then player 2 pawn can kill Player 1’s pawn. Then player 1’s pawn will go back to the starting square and gets blocked again.
+1. When player rolls 4, 8 or kills opponent pawn he/she will get another chance to roll.
+1. Reaching the central square: A pawn needs to reach the central square exactly. For example, if a pawn is 3 squares away from the center and the player throws a 4, then that pawn cannot be moved.
+
 ## Installation
 1. Install Python 3 from www.python.org
 1. Install required modules <br>
@@ -26,6 +34,8 @@ In a command prompt/terminal
 
 ## Contribution :
 Interested people can contribute to develop the game 🙌
+
+if you dont know what to do check project board 🎯
 
 You may contibute to this project by developing additional features.
 
